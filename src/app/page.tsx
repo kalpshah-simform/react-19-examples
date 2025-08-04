@@ -2,7 +2,9 @@
 import Image from "next/image";
 import { useOptimistic, useState, useActionState } from "react";
 import { submitFeedbackAction, addTodoAction } from "./actions";
+import MemoizationDemo from "./memoization-demo";
 import styles from "./page.module.css";
+import NoMemoizationDemo from "./no-memoization-demo";
 
 export default function Home() {
   const [todos, setTodos] = useState([
@@ -199,6 +201,8 @@ export default function Home() {
             </div>
           )}
         </div>
+        <MemoizationDemo />
+        <NoMemoizationDemo />
         <ol>
           <li>
             Get started by editing <code>src/app/page.tsx</code>.
