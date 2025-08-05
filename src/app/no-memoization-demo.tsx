@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // This component will be automatically memoized by React Compiler
-function ExpensiveComponent({ data }: { data: string[] }) {
+function ExpensiveComponent({ data }: Readonly<{ data: string[] }>) {
   "use no memo";
   console.log("ExpensiveComponent rendered with:", data.length, "items");
   
@@ -53,9 +53,8 @@ export default function NoMemoizationDemo() {
       <div style={{ fontSize: "0.9rem", color: "#666", marginBottom: "1rem" }}>
         <p>📝 <strong>Instructions:</strong></p>
         <ul>
-          <li>Click "Count" button - ExpensiveComponent won't re-render (check console)</li>
+          <li>Click "Count" button - ExpensiveComponent will re-render (check console)</li>
           <li>Click "Add Item" - ExpensiveComponent will re-render because props changed</li>
-          <li>React Compiler automatically optimizes this without manual memo/useMemo!</li>
         </ul>
       </div>
 
